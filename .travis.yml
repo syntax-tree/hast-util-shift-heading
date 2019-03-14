@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - lts/boron
+  - node
+after_script: bash <(curl -s https://codecov.io/bash)
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: IYXY7MBbagEO51JWNlHHZxkP+AE5TqCx3wx4Yw4Rjz0Pqp7QvsprdSNwYgqpIeMcnA/N1RwsMq+UhCCphpzI8MSS0AKsR786ndJd4T4e6MdbQ1DIAAI4e/29De6KbW4ca130Ez5eepUdQl1i6+CL26fKg/4tMdfWQdL+7IlcfZDUdDqHmv3X6OKtISNUeMnU6i4tZuaQHHWbkRWyvkbQK4SISPIrxWOlAE5zZSv+mnBFJKnwxo8CDKCCQidbUlHvPYx71tZbtm2oEaUb8RKjbWb3Da170E3VbulyeCaASQVfPkyseo1eK+bS+SCVYd7jtjofFwTDoHjhxEgsya0FaivSRsxs9iSUO6z4nk0O2T/7F5UkKbgndFqMVRwbvKeklFYN9SMNzEMoEB6lSgjrUwH5WvjyrAuhyfpoXu2sdTMSo/mahcgVyoAQTGsk+i3YWxQbLrwrR1DAbWDZX6/TkEp8cupofDxXI+UcvLO+pBsPlnwMS3k/anJeelVhcJrTnsRTwiJ8H6UL0HGpQ98bOyoPobPFlQq0+T8dZdnyblGQcHDPqOZ6od7TlO9ce3qt+xOiQOtAqqRjnXGasaeIScYnsiz0qhl4yglUS3BdUUG/MybUAJadEjkxkauS5iuPU5X+5wito9E2+gLsqu8Ejv8nHv7TG1k6Bf6y+IHu0JU=
+  file:
+    - 'hast-util-shift-heading.js'
+    - 'hast-util-shift-heading.min.js'
+  on:
+    tags: true
