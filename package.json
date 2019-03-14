@@ -1,6 +1,6 @@
 {
   "name": "hast-util-shift-heading",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Change heading rank (or depth, level) in hast",
   "license": "MIT",
   "keywords": [
