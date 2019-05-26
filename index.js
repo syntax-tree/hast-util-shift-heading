@@ -7,7 +7,9 @@ module.exports = shiftHeading
 var floor = Math.floor
 var min = 1
 var max = 6
-var offset = 48 // '0'.charCodeAt(0)
+
+// Character codes.
+var digit0 = 48
 
 function shiftHeading(tree, shift) {
   if (
@@ -35,7 +37,7 @@ function shiftHeading(tree, shift) {
       name === 'h5' ||
       name === 'h6'
     ) {
-      rank = name.charCodeAt(1) - offset + shift
+      rank = name.charCodeAt(1) - digit0 + shift
       node.tagName = 'h' + (rank > max ? max : rank < min ? min : rank)
     }
   }
