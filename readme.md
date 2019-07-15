@@ -98,6 +98,12 @@ or `h7`).
 
 `Error` — When `shift` is not a valid non-null finite integer.
 
+## Security
+
+`hast-util-shift-heading` changes the syntax tree but can only generated
+headings from `h1` through `h6`.
+There are no openings for [cross-site scripting (XSS)][xss] attacks.
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
@@ -157,3 +163,5 @@ abide by its terms.
 [hast]: https://github.com/syntax-tree/hast
 
 [node]: https://github.com/syntax-tree/hast#nodes
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
