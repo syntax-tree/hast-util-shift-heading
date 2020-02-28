@@ -1,19 +1,21 @@
 {
   "name": "hast-util-shift-heading",
   "version": "1.0.1",
-  "description": "Change heading rank (or depth, level) in hast",
+  "description": "hast utility to change heading rank (or depth, level)",
   "license": "MIT",
   "keywords": [
+    "unist",
+    "hast",
+    "hast-util",
+    "util",
+    "utility",
+    "html",
     "heading",
     "rank",
     "depth",
     "level",
     "shift",
-    "change",
-    "hast",
-    "html",
-    "util",
-    "utility"
+    "change"
   ],
   "repository": "syntax-tree/hast-util-shift-heading",
   "bugs": "https://github.com/syntax-tree/hast-util-shift-heading/issues",
