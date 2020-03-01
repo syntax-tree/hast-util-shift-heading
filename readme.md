@@ -104,6 +104,11 @@ or `h7`).
 headings from `h1` through `h6`.
 There are no openings for [cross-site scripting (XSS)][xss] attacks.
 
+## Related
+
+*   [`hast-util-heading`](https://github.com/syntax-tree/hast-util-heading)
+    — check if a node is a heading element
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
