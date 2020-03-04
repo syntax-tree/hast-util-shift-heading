@@ -108,6 +108,8 @@ There are no openings for [cross-site scripting (XSS)][xss] attacks.
 
 *   [`hast-util-heading`](https://github.com/syntax-tree/hast-util-heading)
     — check if a node is a heading element
+*   [`hast-util-heading-rank`](https://github.com/syntax-tree/hast-util-heading-rank)
+    — get the rank (or depth, level) of headings
 
 ## Contribute
 
