@@ -1,3 +1,5 @@
 coverage/
 hast-util-shift-heading.js
 hast-util-shift-heading.min.js
+*.json
+*.md

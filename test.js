@@ -4,9 +4,9 @@ var test = require('tape')
 var h = require('hastscript')
 var shift = require('.')
 
-test('shiftHeading', function(t) {
+test('shiftHeading', function (t) {
   t.throws(
-    function() {
+    function () {
       shift(h())
     },
     /^Error: Expected a non-null finite integer, not `undefined`$/,
@@ -14,7 +14,7 @@ test('shiftHeading', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       shift(h(), NaN)
     },
     /^Error: Expected a non-null finite integer, not `NaN`$/,
@@ -22,7 +22,7 @@ test('shiftHeading', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       shift(h(), 0.1)
     },
     /^Error: Expected a non-null finite integer, not `0.1`$/,
@@ -30,7 +30,7 @@ test('shiftHeading', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       shift(h(), Infinity)
     },
     /^Error: Expected a non-null finite integer, not `Infinity`$/,
@@ -38,7 +38,7 @@ test('shiftHeading', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       shift(h(), 0)
     },
     /^Error: Expected a non-null finite integer, not `0`$/,
