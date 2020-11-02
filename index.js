@@ -1,5 +1,6 @@
 'use strict'
 
+var headingRank = require('hast-util-heading-rank')
 var visit = require('unist-util-visit')
 
 module.exports = shiftHeading
@@ -14,23 +15,15 @@ function shiftHeading(tree, shift) {
     throw new Error('Expected a non-null finite integer, not `' + shift + '`')
   }
 
-  visit(tree, visitor)
+  visit(tree, 'element', visitor)
 
   return tree
 
   function visitor(node) {
-    var name = node.tagName
-    var rank
+    var rank = headingRank(node)
 
-    if (
-      name === 'h1' ||
-      name === 'h2' ||
-      name === 'h3' ||
-      name === 'h4' ||
-      name === 'h5' ||
-      name === 'h6'
-    ) {
-      rank = name.charCodeAt(1) - 48 /* `0` */ + shift
+    if (rank) {
+      rank += shift
       node.tagName = 'h' + (rank > 6 ? 6 : rank < 1 ? 1 : rank)
     }
   }
