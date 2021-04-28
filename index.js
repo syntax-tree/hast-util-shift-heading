@@ -1,6 +1,18 @@
+/**
+ * @typedef {import('unist').Node} UnistNode
+ * @typedef {import('hast').Element} HastElement
+ * @typedef {import('unist-util-visit').Visitor<HastElement>} VisitElement
+ */
+
 import {headingRank} from 'hast-util-heading-rank'
 import {visit} from 'unist-util-visit'
 
+/**
+ * @template {UnistNode} T
+ * @param {T} tree
+ * @param {number} shift
+ * @returns {T}
+ */
 export function shiftHeading(tree, shift) {
   if (
     typeof shift !== 'number' ||
@@ -15,6 +27,7 @@ export function shiftHeading(tree, shift) {
 
   return tree
 
+  /** @type {VisitElement} */
   function visitor(node) {
     var rank = headingRank(node)
 

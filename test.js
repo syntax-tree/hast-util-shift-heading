@@ -5,6 +5,7 @@ import {shiftHeading} from './index.js'
 test('shiftHeading', function (t) {
   t.throws(
     function () {
+      // @ts-ignore runtime.
       shiftHeading(h(''))
     },
     /^Error: Expected a non-null finite integer, not `undefined`$/,
