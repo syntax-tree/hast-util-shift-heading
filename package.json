@@ -1,6 +1,6 @@
 {
   "name": "hast-util-shift-heading",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "hast utility to change heading rank (or depth, level)",
   "license": "MIT",
   "keywords": [
