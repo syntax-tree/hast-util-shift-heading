@@ -1,15 +1,11 @@
-'use strict'
+import {headingRank} from 'hast-util-heading-rank'
+import {visit} from 'unist-util-visit'
 
-var headingRank = require('hast-util-heading-rank')
-var visit = require('unist-util-visit')
-
-module.exports = shiftHeading
-
-function shiftHeading(tree, shift) {
+export function shiftHeading(tree, shift) {
   if (
     typeof shift !== 'number' ||
     !shift ||
-    !isFinite(shift) ||
+    !Number.isFinite(shift) ||
     Math.floor(shift) !== shift
   ) {
     throw new Error('Expected a non-null finite integer, not `' + shift + '`')

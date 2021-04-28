@@ -12,6 +12,9 @@
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -21,8 +24,8 @@ npm install hast-util-shift-heading
 ## Use
 
 ```js
-var h = require('hastscript')
-var shift = require('hast-util-shift-heading')
+import {h} from 'hastscript'
+import {shiftHeading} from 'hast-util-shift-heading'
 
 var tree = h('main', [
   h('h1', 'Alpha'),
@@ -34,7 +37,7 @@ var tree = h('main', [
   h('h6', 'Golf')
 ])
 
-shift(tree, -1)
+shiftHeading(tree, -1)
 
 console.log(tree)
 ```
@@ -77,6 +80,9 @@ Yields:
 ```
 
 ## API
+
+This package exports the following identifiers: `shiftHeading`.
+There is no default export.
 
 ### `shiftHeading(tree, shift)`
 

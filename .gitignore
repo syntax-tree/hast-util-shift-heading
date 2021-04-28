@@ -1,8 +1,5 @@
 .DS_Store
 *.log
-.nyc_output/
 coverage/
 node_modules/
-hast-util-shift-heading.js
-hast-util-shift-heading.min.js
 yarn.lock
