@@ -1,14 +1,15 @@
 /**
- * @typedef {import('unist').Node} UnistNode
- * @typedef {import('hast').Element} HastElement
- * @typedef {import('unist-util-visit').Visitor<HastElement>} VisitElement
+ * @typedef {Root['children'][number]|Root} Node
+ * @typedef {import('hast').Root} Root
+ * @typedef {import('hast').Element} Element
+ * @typedef {import('unist-util-visit').Visitor<Element>} VisitElement
  */
 
 import {headingRank} from 'hast-util-heading-rank'
 import {visit} from 'unist-util-visit'
 
 /**
- * @template {UnistNode} T
+ * @template {Node} T
  * @param {T} tree
  * @param {number} shift
  * @returns {T}
@@ -23,17 +24,19 @@ export function shiftHeading(tree, shift) {
     throw new Error('Expected a non-null finite integer, not `' + shift + '`')
   }
 
-  visit(tree, 'element', visitor)
+  visit(
+    tree,
+    'element',
+    /** @type {VisitElement} */
+    (node) => {
+      let rank = headingRank(node)
+
+      if (rank) {
+        rank += shift
+        node.tagName = 'h' + (rank > 6 ? 6 : rank < 1 ? 1 : rank)
+      }
+    }
+  )
 
   return tree
-
-  /** @type {VisitElement} */
-  function visitor(node) {
-    let rank = headingRank(node)
-
-    if (rank) {
-      rank += shift
-      node.tagName = 'h' + (rank > 6 ? 6 : rank < 1 ? 1 : rank)
-    }
-  }
 }
