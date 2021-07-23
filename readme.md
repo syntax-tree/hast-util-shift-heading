@@ -27,7 +27,7 @@ npm install hast-util-shift-heading
 import {h} from 'hastscript'
 import {shiftHeading} from 'hast-util-shift-heading'
 
-var tree = h('main', [
+const tree = h('main', [
   h('h1', 'Alpha'),
   h('p', 'Bravo'),
   h('h2', 'Charlie'),

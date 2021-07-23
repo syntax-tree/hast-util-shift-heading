@@ -29,7 +29,7 @@ export function shiftHeading(tree, shift) {
 
   /** @type {VisitElement} */
   function visitor(node) {
-    var rank = headingRank(node)
+    let rank = headingRank(node)
 
     if (rank) {
       rank += shift

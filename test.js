@@ -2,9 +2,9 @@ import test from 'tape'
 import {h} from 'hastscript'
 import {shiftHeading} from './index.js'
 
-test('shiftHeading', function (t) {
+test('shiftHeading', (t) => {
   t.throws(
-    function () {
+    () => {
       // @ts-ignore runtime.
       shiftHeading(h(''))
     },
@@ -13,7 +13,7 @@ test('shiftHeading', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       shiftHeading(h(''), Number.NaN)
     },
     /^Error: Expected a non-null finite integer, not `NaN`$/,
@@ -21,7 +21,7 @@ test('shiftHeading', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       shiftHeading(h(''), 0.1)
     },
     /^Error: Expected a non-null finite integer, not `0.1`$/,
@@ -29,7 +29,7 @@ test('shiftHeading', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       shiftHeading(h(''), Number.POSITIVE_INFINITY)
     },
     /^Error: Expected a non-null finite integer, not `Infinity`$/,
@@ -37,7 +37,7 @@ test('shiftHeading', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       shiftHeading(h(''), 0)
     },
     /^Error: Expected a non-null finite integer, not `0`$/,
