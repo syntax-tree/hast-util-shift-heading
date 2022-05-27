@@ -8,17 +8,58 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**hast**][hast] utility to change the rank (depth, level) of headings.
+[hast][] utility to change ranks (also knows as depth or level) of headings.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`shiftHeading(tree, shift)`](#shiftheadingtree-shift)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package is a small utility that rewrites heading ranks relative to a
+number.
+
+## When should I use this?
+
+You can use this package when you have some content, say an article that starts
+with an `h1`, but want to display it on a page that uses for example an `h1`
+already as the website name (logo?).
+
+You can use the package [`hast-util-heading-rank`][hast-util-heading-rank]
+to get the rank of an element.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
 
 ```sh
 npm install hast-util-shift-heading
+```
+
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {shiftHeading} from 'https://esm.sh/hast-util-shift-heading@3'
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {shiftHeading} from 'https://esm.sh/hast-util-shift-heading@3?bundle'
+</script>
 ```
 
 ## Use
@@ -81,28 +122,40 @@ Yields:
 
 ## API
 
-This package exports the following identifiers: `shiftHeading`.
+This package exports the identifier `shiftHeading`.
 There is no default export.
 
 ### `shiftHeading(tree, shift)`
 
 Change the rank of all headings (`h1` to `h6`) in `tree`.
 Mutates the tree.
-Caps the rank so that shifting would not create invalid headings (such as `h0`
-or `h7`).
+Caps the rank so that shifting would not create invalid headings (so no `h0` or
+`h7`).
 
 ###### Parameters
 
-*   `tree` ([`Node`][node]) — [*Tree*][tree] to walk
-*   `shift` (`number`) — Non-null finite integer to use to shift ranks
+*   `tree` ([`Node`][node]) — tree to walk
+*   `shift` (`number`) — non-null finite integer to use to shift ranks
 
 ###### Returns
 
-`tree` ([`Node`][node]) — The given, mutated, tree.
+The given, mutated, tree ([`Node`][node]).
 
 ###### Throws
 
-`Error` — When `shift` is not a valid non-null finite integer.
+When `shift` is not a valid non-null finite integer.
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports no additional types.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Security
 
@@ -113,14 +166,14 @@ There are no openings for [cross-site scripting (XSS)][xss] attacks.
 ## Related
 
 *   [`hast-util-heading`](https://github.com/syntax-tree/hast-util-heading)
-    — check if a node is a heading element
+    — check if a node is heading content
 *   [`hast-util-heading-rank`](https://github.com/syntax-tree/hast-util-heading-rank)
     — get the rank (or depth, level) of headings
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`syntax-tree/.github`][health] for
+ways to get started.
 See [`support.md`][support] for ways to get help.
 
 This project has a [code of conduct][coc].
@@ -161,20 +214,28 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
 [license]: license
 
 [author]: https://wooorm.com
 
-[contributing]: https://github.com/syntax-tree/.github/blob/HEAD/contributing.md
+[health]: https://github.com/syntax-tree/.github
 
-[support]: https://github.com/syntax-tree/.github/blob/HEAD/support.md
+[contributing]: https://github.com/syntax-tree/.github/blob/main/contributing.md
 
-[coc]: https://github.com/syntax-tree/.github/blob/HEAD/code-of-conduct.md
+[support]: https://github.com/syntax-tree/.github/blob/main/support.md
 
-[tree]: https://github.com/syntax-tree/unist#tree
+[coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
 [hast]: https://github.com/syntax-tree/hast
 
 [node]: https://github.com/syntax-tree/hast#nodes
+
+[hast-util-heading-rank]: https://github.com/syntax-tree/hast-util-heading-rank
 
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
