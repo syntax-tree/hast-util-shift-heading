@@ -42,7 +42,7 @@ to get the rank of an element.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install hast-util-shift-heading
@@ -122,7 +122,7 @@ Yields:
 
 ## API
 
-This package exports the identifier `shiftHeading`.
+This package exports the identifier [`shiftHeading`][shiftheading].
 There is no default export.
 
 ### `shiftHeading(tree, shift)`
@@ -135,12 +135,12 @@ Caps the rank so that shifting would not create invalid headings (so no `h0` or
 
 ###### Parameters
 
-*   `tree` ([`Node`][node]) — tree to walk
+*   `tree` ([`Node`][node]) — tree to change
 *   `shift` (`number`) — non-null finite integer to use to shift ranks
 
 ###### Returns
 
-The given, mutated, tree ([`Node`][node]).
+Given, modified, tree ([`Node`][node]).
 
 ###### Throws
 
@@ -155,7 +155,7 @@ It exports no additional types.
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Security
@@ -240,3 +240,5 @@ abide by its terms.
 [hast-util-heading-rank]: https://github.com/syntax-tree/hast-util-heading-rank
 
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[shiftheading]: #shiftheadingtree-shift
