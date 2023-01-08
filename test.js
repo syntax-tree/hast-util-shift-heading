@@ -1,9 +1,10 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {h} from 'hastscript'
 import {shiftHeading} from './index.js'
 
-test('shiftHeading', (t) => {
-  t.throws(
+test('shiftHeading', () => {
+  assert.throws(
     () => {
       // @ts-ignore runtime.
       shiftHeading(h(''))
@@ -12,7 +13,7 @@ test('shiftHeading', (t) => {
     'should throw when not given a number'
   )
 
-  t.throws(
+  assert.throws(
     () => {
       shiftHeading(h(''), Number.NaN)
     },
@@ -20,7 +21,7 @@ test('shiftHeading', (t) => {
     'should throw when given not a number'
   )
 
-  t.throws(
+  assert.throws(
     () => {
       shiftHeading(h(''), 0.1)
     },
@@ -28,7 +29,7 @@ test('shiftHeading', (t) => {
     'should throw when not given an integer'
   )
 
-  t.throws(
+  assert.throws(
     () => {
       shiftHeading(h(''), Number.POSITIVE_INFINITY)
     },
@@ -36,7 +37,7 @@ test('shiftHeading', (t) => {
     'should throw when not given a finite number'
   )
 
-  t.throws(
+  assert.throws(
     () => {
       shiftHeading(h(''), 0)
     },
@@ -44,31 +45,31 @@ test('shiftHeading', (t) => {
     'should throw when not given a non-null number'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     shiftHeading(h('h1', 'Alpha'), 1),
     h('h2', 'Alpha'),
     'should shift nodes upwards'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     shiftHeading(h('h2', 'Bravo'), -1),
     h('h1', 'Bravo'),
     'should shift nodes downwards'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     shiftHeading(h('h2', 'Charlie'), -2),
     h('h1', 'Charlie'),
     'should not shift upwards past h1'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     shiftHeading(h('h5', 'Delta'), 2),
     h('h6', 'Delta'),
     'should not shift downwards past h6'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     shiftHeading(
       h('main', [h('h1', 'Echo'), h('p', 'Foxtrot'), h('h5', 'Golf')]),
       2
@@ -76,6 +77,4 @@ test('shiftHeading', (t) => {
     h('main', [h('h3', 'Echo'), h('p', 'Foxtrot'), h('h6', 'Golf')]),
     'should change a tree'
   )
-
-  t.end()
 })
