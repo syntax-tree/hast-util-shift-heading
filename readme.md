@@ -128,6 +128,7 @@ There is no default export.
 ### `shiftHeading(tree, shift)`
 
 Change the rank of all headings (`h1` to `h6`) in `tree`.
+
 Mutates the tree.
 Caps the rank so that shifting would not create invalid headings (so no `h0` or
 `h7`).
