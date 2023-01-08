@@ -2,8 +2,15 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import {h} from 'hastscript'
 import {shiftHeading} from './index.js'
+import * as mod from './index.js'
 
 test('shiftHeading', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['shiftHeading'],
+    'should expose the public api'
+  )
+
   assert.throws(
     () => {
       // @ts-ignore runtime.
