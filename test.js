@@ -1,13 +1,14 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {h} from 'hastscript'
-import {shiftHeading} from './index.js'
+import {shiftHeading} from 'hast-util-shift-heading'
 
 test('shiftHeading', async function (t) {
   await t.test('should expose the public api', async function () {
-    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
-      'shiftHeading'
-    ])
+    assert.deepEqual(
+      Object.keys(await import('hast-util-shift-heading')).sort(),
+      ['shiftHeading']
+    )
   })
 
   await t.test('should throw when not given a number', async function () {
