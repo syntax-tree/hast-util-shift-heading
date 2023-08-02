@@ -42,7 +42,7 @@ to get the rank of an element.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 14.14+ and 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install hast-util-shift-heading
@@ -122,7 +122,7 @@ Yields:
 
 ## API
 
-This package exports the identifier [`shiftHeading`][shiftheading].
+This package exports the identifier [`shiftHeading`][api-shift-heading].
 There is no default export.
 
 ### `shiftHeading(tree, shift)`
@@ -153,10 +153,13 @@ It exports no additional types.
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line,
+`hast-util-shift-heading@^3`, compatible with Node.js 12.
 
 ## Security
 
@@ -199,9 +202,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/hast-util-shift-heading
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/hast-util-shift-heading.svg
+[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size&query=$.size.compressedSize&url=https://deno.bundlejs.com/?q=hast-util-shift-heading
 
-[size]: https://bundlephobia.com/result?p=hast-util-shift-heading
+[size]: https://bundlejs.com/?q=hast-util-shift-heading
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -241,4 +244,4 @@ abide by its terms.
 
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
 
-[shiftheading]: #shiftheadingtree-shift
+[api-shift-heading]: #shiftheadingtree-shift
