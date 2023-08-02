@@ -48,27 +48,38 @@ test('shiftHeading', async function (t) {
   )
 
   await t.test('should shift nodes upwards', async function () {
-    assert.deepEqual(shiftHeading(h('h1', 'Alpha'), 1), h('h2', 'Alpha'))
+    const tree = h('h1', 'Alpha')
+    shiftHeading(tree, 1)
+    assert.deepEqual(tree, h('h2', 'Alpha'))
   })
 
   await t.test('should shift nodes downwards', async function () {
-    assert.deepEqual(shiftHeading(h('h2', 'Bravo'), -1), h('h1', 'Bravo'))
+    const tree = h('h2', 'Bravo')
+    shiftHeading(tree, -1)
+    assert.deepEqual(tree, h('h1', 'Bravo'))
   })
 
   await t.test('should not shift upwards past h1', async function () {
-    assert.deepEqual(shiftHeading(h('h2', 'Charlie'), -2), h('h1', 'Charlie'))
+    const tree = h('h2', 'Charlie')
+    shiftHeading(tree, -2)
+    assert.deepEqual(tree, h('h1', 'Charlie'))
   })
 
   await t.test('should not shift downwards past h6', async function () {
-    assert.deepEqual(shiftHeading(h('h5', 'Delta'), 2), h('h6', 'Delta'))
+    const tree = h('h5', 'Delta')
+    shiftHeading(tree, 2)
+    assert.deepEqual(tree, h('h6', 'Delta'))
   })
 
   await t.test('should change a tree', async function () {
+    const tree = h('main', [
+      h('h1', 'Echo'),
+      h('p', 'Foxtrot'),
+      h('h5', 'Golf')
+    ])
+    shiftHeading(tree, 2)
     assert.deepEqual(
-      shiftHeading(
-        h('main', [h('h1', 'Echo'), h('p', 'Foxtrot'), h('h5', 'Golf')]),
-        2
-      ),
+      tree,
       h('main', [h('h3', 'Echo'), h('p', 'Foxtrot'), h('h6', 'Golf')])
     )
   })

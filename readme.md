@@ -140,7 +140,7 @@ Caps the rank so that shifting would not create invalid headings (so no `h0` or
 
 ###### Returns
 
-Given, modified, tree ([`Node`][node]).
+Nothing (`undefined`).
 
 ###### Throws
 
