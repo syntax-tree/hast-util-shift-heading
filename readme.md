@@ -51,14 +51,14 @@ npm install hast-util-shift-heading
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {shiftHeading} from 'https://esm.sh/hast-util-shift-heading@3'
+import {shiftHeading} from 'https://esm.sh/hast-util-shift-heading@4'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {shiftHeading} from 'https://esm.sh/hast-util-shift-heading@3?bundle'
+  import {shiftHeading} from 'https://esm.sh/hast-util-shift-heading@4?bundle'
 </script>
 ```
 
